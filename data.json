@@ -1,0 +1,31 @@
+[
+    {
+        "name": "public",
+        "isFolder": true,
+        "children": [
+            {
+                "name": "vite",
+                "isFolder": false
+            }
+        ]
+    },
+    {
+        "name": "src",
+        "isFolder": true,
+        "children": [
+            {
+                "name": "asset",
+                "isFolder": true,
+                "children": []
+            },
+            {
+                "name": "index.css",
+                "isFolder": false
+            }
+        ]
+    },
+    {
+        "name": "index.html",
+        "isFolder": false
+    }
+]
