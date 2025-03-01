@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function List({ list }) {
+function List({ list, addNodeToList, deleteNodeFromList }) {
     const [isExpanded, setIsExpanded] = useState({});
 
     return (
@@ -11,16 +11,23 @@ function List({ list }) {
                         {node.isFolder && <span onClick={() => setIsExpanded((prev) => ({
                             ...prev,
                             [node.name]: !prev[node.name],
-                            }))}>{isExpanded?.[node.name] ? '-' : '+'}</span>}
+                            }))}>{isExpanded?.[node.name] ? '- ' : '+ '}</span>}
                         <span>{node.name}</span>
-                        <span>
+                        {node.isFolder && <div className="icon-container" onClick={() => addNodeToList(node.id)}>
                             <img
                             src="https://cdn-icons-png.flaticon.com/512/5994/5994754.png"
                             className="icon"
                             />
-
-                        </span>
-                        {isExpanded?.[node.name] && node.children && <List list={node.children} />}
+                            <span className="tooltip">New Folder</span>
+                        </div>}
+                        <div className="icon-container" onClick={() => deleteNodeFromList(node.id)}>
+                            <img
+                            src="https://cdn-icons-png.flaticon.com/512/3161/3161358.png"
+                            className="icon"
+                            />
+                            <span className="tooltip">Delete</span>
+                        </div>
+                        {isExpanded?.[node.name] && node.children && <List list={node.children} addNodeToList={addNodeToList} deleteNodeFromList={deleteNodeFromList}/>}
                     </div>
                 ))
             }

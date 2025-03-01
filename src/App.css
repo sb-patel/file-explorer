@@ -14,3 +14,30 @@
   width: 20px;
   margin-left: 10px;
 }
+
+.icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  visibility: hidden;
+  background-color: black;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  padding: 3px 5px;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 110%; /* Adjust position */
+  left: 70%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.icon-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
